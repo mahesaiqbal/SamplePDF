@@ -1,16 +1,12 @@
 package com.mahesaiqbal.samplepdf
 
-import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import com.downloader.Error
 import com.downloader.OnDownloadListener
@@ -110,20 +106,6 @@ class MainActivity : AppCompatActivity() {
             }
             
             startActivity(createChooser)
-        }
-    }
-    
-    private fun createSampleDir() {
-        val folderName = "SamplePDF Downloads"
-        val file = File(Environment.getExternalStorageDirectory(), folderName)
-    
-        if (!file.exists()) {
-            file.mkdir()
-            Toast.makeText(this, "Successfully created file on: ${file.absolutePath}", Toast.LENGTH_SHORT).show()
-            Log.d("FileUtils", "Successfully created file on: ${file.absolutePath}")
-        } else {
-            Toast.makeText(this, "Folder already exist on: ${file.absolutePath}", Toast.LENGTH_SHORT).show()
-            Log.d("FileUtils", "Folder already exist on: ${file.absolutePath}")
         }
     }
 }
